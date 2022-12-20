@@ -1,0 +1,7 @@
+[closeapp]
+
+closeapp = HuyaClient.exe, cloudmusic.exe, Effidit.exe, MendeleyDesktop.exe, msedge.exe, RunAny.exe, TranslucentTB.exe, QuickLook.exe, TrafficMonitor.exe, RunAny.exe, Everything.exe, Feishu.exe, TickTick.exe, MiScreenShareGuide.exe, Ditto.exe, AIoT.exe, Quicker.exe, QuickLook.WoW64HookHelper, DouyuClient.exe
+
+[openapp]
+
+openapp = C:\Program Files (x86)\HuyaClient\huya.exe, E:\Feishu\Feishu.exe
