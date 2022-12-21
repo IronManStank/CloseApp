@@ -1,22 +1,21 @@
 # CloseApp
 
 #### Description
-本程序可将已经打开的应用一键关闭，也可同时打开想要打开的应用。相关功能需要在配置文件中指明应用名称即可实现。需要注意的是，本程序目前仅在Windows平台测试完毕，其他平台还请使用者自行评测。如有BUG请联系我，感谢您的参与！
+This program can close the opened application with one click, or open the application you want to open at the same time. Relevant functions can be realized by specifying the application name in the configuration file. It should be noted that this program has been tested only on the Windows platform at present (Win11 22H2), and other platforms should also be evaluated by users themselves. If there is a bug, please contact me, thank you for your participation!
 
 #### Software Architecture
 Software architecture description
 
 #### Installation
+This software is an exe executable file, which can be run directly without installation.
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+
 
 #### Instructions
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1. If the program is run for the first time, a configuration file will be created automatically. There are detailed comments in the configuration file, which can be configured according to the comments.
+2. After the program runs, a dialog box will pop up, and completion and failure information will be displayed in the dialog box.
+3. The program will exit automatically after execution.
 
 #### Contribution
 
@@ -26,11 +25,4 @@ Software architecture description
 4.  Create Pull Request
 
 
-#### Gitee Feature
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)

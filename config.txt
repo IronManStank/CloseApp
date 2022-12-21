@@ -1,7 +1,7 @@
 [closeapp]
-
+# 此处为关闭应用程序的进程名，可通过任务管理器查看，多个进程名用逗号隔开，注意“,”为英文逗号且有空格！
 closeapp = HuyaClient.exe, cloudmusic.exe, Effidit.exe, MendeleyDesktop.exe, msedge.exe, RunAny.exe, TranslucentTB.exe, QuickLook.exe, TrafficMonitor.exe, RunAny.exe, Everything.exe, Feishu.exe, TickTick.exe, MiScreenShareGuide.exe, Ditto.exe, AIoT.exe, Quicker.exe, QuickLook.WoW64HookHelper, DouyuClient.exe
 
 [openapp]
-
+# 此处为打开应用程序的路径，多个路径用英文逗号隔开。注意“,”为英文逗号且有空格！
 openapp = C:\Program Files (x86)\HuyaClient\huya.exe, E:\Feishu\Feishu.exe
