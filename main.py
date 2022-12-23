@@ -10,6 +10,7 @@ class Main(object):
         self.openapplist = []
         self.logger = logging.getLogger(__name__)
         logging.basicConfig(filename='CloseAppLog.log',
+                            filemode='w',
                             format='%(asctime)s:%(levelname)s:%(message)s',
                             encoding='utf-8')
         self.logger.setLevel(logging.DEBUG)
@@ -18,9 +19,9 @@ class Main(object):
         self.logger.info('Checking config file……')
         if not path.exists('config.txt'):
             self.logger.info(
-                'Config file not found！ Creating new config file……')
+                'Config file not found! Creating new config file……')
             with open('config.txt', 'w') as f:
-                self.logger.info('Config file created successfully！')
+                self.logger.info('Config file created successfully!')
                 pass
             return False
         else:
@@ -32,7 +33,7 @@ class Main(object):
         config = Config('config.txt')
         self.closelist = list(config.get_section('closeapp', 'closeapp'))
         self.openapplist = list(config.get_section('openapp', 'openapp'))
-        self.logger.info('Config file phased in successfully！')
+        self.logger.info('Config file phased in successfully!')
         return self.closelist, self.openapplist
 
     def close_app(self):
