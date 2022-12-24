@@ -1,7 +1,9 @@
 # CloseApp
 
 #### Description
-This program can close the opened application with one click, or open the application you want to open at the same time. Relevant functions can be realized by specifying the application name in the configuration file. It should be noted that this program has been tested only on the Windows platform at present (Win11 22H2), and other platforms should also be evaluated by users themselves. If there is a bug, please contact me, thank you for your participation!
+The original intention of this program is to close applications unrelated to the game with one click, and open the game to be played with one click. You can enter the game immediately without having to manually close and open the application, which saves us a lot of time playing games.
+In addition, this program can also close and open designated applications, such as QQ, WeChat, TIM, etc., or open designated applications, such as browsers, music players, etc. Realize customized office processes and open efficient fishing (work) mode.
+Relevant functions can be realized by specifying the application name in the configuration file. It should be noted that this program has been tested only on the Windows platform at present, and other platforms should also be evaluated by users themselves. If there is a bug, please contact me, thank you for your participation!
 
 #### Software Architecture
 Software architecture description
