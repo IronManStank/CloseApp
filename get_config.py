@@ -11,7 +11,7 @@ class Config(object):
     def get_section(self, section,option):
         section_content = self.config.get(section,option).split(', ')
         if len(section_content[0]) == 0:
-            raise ConfigEmptyError("Config file is empty, please add sth!")
+            raise ConfigEmptyError("Config file is empty, please add appNames or path according to the config file!")
         else:
             return section_content
 
