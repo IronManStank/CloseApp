@@ -5,7 +5,6 @@ from get_config import Config
 
 
 class Main(object):
-
     def __init__(self):
         self.closeapplist = []
         self.openapplist = []
@@ -21,15 +20,16 @@ class Main(object):
         if not path.exists('config.txt'):
             self.logger.error(
                 'Config file not found! Creating new config file……')
-            with open('config.txt', 'w',encoding='utf-8') as f:
+            with open('config.txt', 'w', encoding='utf-8') as f:
                 f.write('[closeapp]\n')
-                f.write('# 此处为关闭应用程序的进程名，可通过任务管理器查看，多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
+                f.write(
+                    '# 此处为关闭应用程序的进程名，可通过任务管理器查看，多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
                 f.write('closeapp = \n')
                 f.write('[openapp]\n')
                 f.write('# 此处为打开应用程序的路径，多个路径用英文逗号隔开。注意“,”为英文逗号且有空格！\n')
                 f.write('openapp = \n')
                 self.logger.info('Config file created successfully!')
-                
+
             return False
         else:
             self.logger.info('Config file found!')
