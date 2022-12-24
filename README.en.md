@@ -1,5 +1,7 @@
 # CloseApp
 
+[简体中文](./README.md)
+
 #### Description
 The original intention of this program is to close applications unrelated to the game with one click, and open the game to be played with one click. You can enter the game immediately without having to manually close and open the application, which saves us a lot of time playing games.
 In addition, this program can also close and open designated applications, such as QQ, WeChat, TIM, etc., or open designated applications, such as browsers, music players, etc. Realize customized office processes and open efficient fishing (work) mode.
