@@ -1,9 +1,24 @@
 import logging
 from os import startfile, system, path
-
+import sys
 from get_config import Config
+from pprint import pp
 
-CONFIG_PATH = 'config.txt'
+
+def get_config_path() -> str:
+    '''
+    从命令行传入configpath，如果没传入则使用默认值
+    '''
+    args = sys.argv
+    if args.__len__() < 2:
+        return 'config.txt'
+    else:
+        config_path = sys.argv[1]
+        return config_path
+
+
+CONFIG_PATH = get_config_path()
+
 
 class Main(object):
     def __init__(self):
@@ -15,6 +30,11 @@ class Main(object):
                             format='%(asctime)s:%(levelname)s:%(message)s',
                             encoding='utf-8')
         self.logger.setLevel(logging.DEBUG)
+
+        # 统计
+        self.openerrlist = []
+
+        self.closeerrlist = []
 
     def check_config(self):
         self.logger.info('Checking config file……')
@@ -57,6 +77,7 @@ class Main(object):
 
                 if status == 128:
                     self.logger.warning(f'App closed failed: {item}')
+                    self.closeerrlist.append(item)
                 else:
                     self.logger.info(f'App closed: {item}')
             except:
@@ -70,10 +91,33 @@ class Main(object):
                     startfile(item)
                     self.logger.info(f'App opened: {item}')
                 else:
-                    self.logger.warning(f'Failed to open app: {item}, not exists')
+                    self.logger.warning(
+                        f'Failed to open app: {item}, not exists')
+
+                    self.openerrlist.append(item)
             except:
                 self.logger.warning(f'Failed to open app: {item}')
+                self.openerrlist.append(item)
                 continue
+
+    def summary(self):
+        '''
+        总结
+        '''
+        print()
+        print('#'*45)
+        # 关闭失败/成功 开启失败/成功
+
+        closeok = [i for i in self.closeapplist if i not in self.closeerrlist]
+        openok = [i for i in self.openapplist if i not in self.openerrlist]
+        print(f'\nClose OK: {len(closeok)}')
+        pp(closeok)
+        print(f'\nClose Err: {len(self.closeerrlist)}')
+        pp(self.closeerrlist)
+        print(f'\nOpen OK: {len(openok)}')
+        pp(openok)
+        print(f'\nOpen Err: {len(self.openerrlist)}')
+        pp(self.openerrlist)
 
 
 if __name__ == '__main__':
@@ -82,3 +126,4 @@ if __name__ == '__main__':
     main.get_config()
     main.close_app()
     main.open_app()
+    main.summary()
