@@ -62,16 +62,16 @@ class Main(object):
         self.logger.info('Phasing in config file……')
         try:
             config = Config(CONFIG_PATH)
-            self.closelist = list(config.get_section('closeapp', 'closeapp'))
+            self.closeapplist = list(config.get_section('closeapp', 'closeapp'))
             self.openapplist = list(config.get_section('openapp', 'openapp'))
             self.logger.info('Config file phased in successfully!')
         except Exception as e:
             self.logger.error(e)
-        return self.closelist, self.openapplist
+        return self.closeapplist, self.openapplist
 
     def close_app(self):
         self.logger.info('Closing apps……')
-        for item in self.closelist:
+        for item in self.closeapplist:
             try:
                 status = system(f'taskkill /f /im {item}')
 
