@@ -20,7 +20,7 @@ This software is an exe executable file, which can be run directly without insta
 1. If the program is run for the first time, a configuration file will be created automatically. There are detailed comments in the configuration file, which can be configured according to the comments.
 2. After the program runs, a dialog box will pop up, and completion and failure information will be displayed in the dialog box.
 3. The program will exit automatically after execution.
-4. The program will look for `config.txt` in the current directory, and you can specify the configuration file by passing in different configuration files with parameters, or by dragging the configuration file to `CloseApp.py`/`CloseApp.exe`.
+4. The program will look for `config.txt` in its directory, and can specify the configuration file by passing in different configuration files with parameters, or by dragging the configuration file to `CloseApp.py`/`CloseApp.exe`
 
 #### Contribution
 
@@ -28,6 +28,3 @@ This software is an exe executable file, which can be run directly without insta
 2.  Create Feat_xxx branch
 3.  Commit your code
 4.  Create Pull Request
-
-
-

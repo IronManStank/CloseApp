@@ -1,5 +1,5 @@
 import logging
-from os import startfile, system, path
+from os import startfile, system, path, chdir
 import sys
 from pprint import pp
 import configparser
@@ -13,12 +13,10 @@ def get_config_path() -> str:
     '''
     从命令行传入configpath，如果没传入则使用默认值
     '''
-    args = sys.argv
-    if args.__len__() < 2:
+    try:
+        return sys.argv[1]
+    except:
         return 'config.txt'
-    else:
-        config_path = sys.argv[1]
-        return config_path
 
 
 CONFIG_PATH = get_config_path()
@@ -141,6 +139,7 @@ class Main(object):
 
 
 if __name__ == '__main__':
+    chdir(path.dirname(sys.argv[0]))
     main = Main()
     main.check_config()
     main.get_config()
