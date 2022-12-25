@@ -22,3 +22,10 @@ bin-release/
 __pycache__/
 venv/
 .env/
+
+# log
+*.log
+
+
+# test py
+*_local*
