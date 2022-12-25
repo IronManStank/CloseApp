@@ -30,7 +30,8 @@ class Config(object):
         self.config.read(config_file, encoding='utf-8')
 
     def get_section(self, section, option):
-        section_content = self.config.get(section, option).split(', ')
+        section_content = [i.strip()
+                           for i in self.config.get(section, option).split(',')]
         if len(section_content[0]) == 0:
             raise ConfigEmptyError(
                 "Config file is empty, please add appNames or path according to the config file!")
@@ -63,11 +64,11 @@ class Main(object):
                 f.write('[closeapp]\n')
                 f.write(
                     '# 此处为关闭应用程序的进程名，可通过任务管理器查看，\
-                    多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
+多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
                 f.write('closeapp = \n')
                 f.write('[openapp]\n')
                 f.write('# 此处为打开应用程序的路径，多个路径用英文逗号隔开。\
-                注意“,”为英文逗号且有空格！\n')
+注意“,”为英文逗号且有空格！\n')
                 f.write('openapp = \n')
                 self.logger.info('Config file created successfully!')
 
