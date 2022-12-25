@@ -3,6 +3,7 @@ from os import startfile, system, path
 
 from get_config import Config
 
+CONFIG_PATH = 'config.txt'
 
 class Main(object):
     def __init__(self):
@@ -17,16 +18,18 @@ class Main(object):
 
     def check_config(self):
         self.logger.info('Checking config file……')
-        if not path.exists('config.txt'):
+        if not path.isfile(CONFIG_PATH):
             self.logger.error(
                 'Config file not found! Creating new config file……')
-            with open('config.txt', 'w', encoding='utf-8') as f:
+            with open(CONFIG_PATH, 'w', encoding='utf-8') as f:
                 f.write('[closeapp]\n')
                 f.write(
-                    '# 此处为关闭应用程序的进程名，可通过任务管理器查看，多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
+                    '# 此处为关闭应用程序的进程名，可通过任务管理器查看，\
+                    多个进程名用逗号隔开，注意“,”为英文逗号且有空格! 示例: HuyaClient.exe\n')
                 f.write('closeapp = \n')
                 f.write('[openapp]\n')
-                f.write('# 此处为打开应用程序的路径，多个路径用英文逗号隔开。注意“,”为英文逗号且有空格！\n')
+                f.write('# 此处为打开应用程序的路径，多个路径用英文逗号隔开。\
+                注意“,”为英文逗号且有空格！\n')
                 f.write('openapp = \n')
                 self.logger.info('Config file created successfully!')
 
@@ -38,7 +41,7 @@ class Main(object):
     def get_config(self):
         self.logger.info('Phasing in config file……')
         try:
-            config = Config('config.txt')
+            config = Config(CONFIG_PATH)
             self.closelist = list(config.get_section('closeapp', 'closeapp'))
             self.openapplist = list(config.get_section('openapp', 'openapp'))
             self.logger.info('Config file phased in successfully!')
@@ -50,27 +53,27 @@ class Main(object):
         self.logger.info('Closing apps……')
         for item in self.closelist:
             try:
-                status = system('taskkill /f /im ' + item)
+                status = system(f'taskkill /f /im {item}')
 
                 if status == 128:
-                    self.logger.warning('App closed failed: ' + item)
+                    self.logger.warning(f'App closed failed: {item}')
                 else:
-                    self.logger.info('App closed: ' + item)
+                    self.logger.info(f'App closed: {item}')
             except:
-
-                pass
-            continue
+                continue
 
     def open_app(self):
         self.logger.info('Opening apps……')
         for item in self.openapplist:
             try:
-                startfile(item)
-                self.logger.info('App opened: ' + item)
+                if path.isfile(item):
+                    startfile(item)
+                    self.logger.info(f'App opened: {item}')
+                else:
+                    self.logger.warning(f'Failed to open app: {item}, not exists')
             except:
-                self.logger.warning('Failed to open app: ' + item)
-                pass
-            continue
+                self.logger.warning(f'Failed to open app: {item}')
+                continue
 
 
 if __name__ == '__main__':
